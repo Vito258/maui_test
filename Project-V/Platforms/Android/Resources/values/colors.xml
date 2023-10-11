@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--在这里调节手机状态栏的颜色-->
+
+<resources>
+    <color name="colorPrimary">#DC143C</color>
+    <color name="colorPrimaryDark">#4B0082</color>
+    <color name="colorAccent">#4B0082</color>
+</resources>

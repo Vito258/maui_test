@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Project_V.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Project_V"
+    xmlns:view="clr-namespace:Project_V.Views.Pages"
+    Shell.FlyoutBehavior="Flyout" FlyoutBackgroundColor="Teal">
+    <!--Shell.FlyoutBehavior="Disabled"-->
+    <!--通过Route属性，显示注册路由,在这里注册带有层次结构-->
+    <!--<FlyoutItem Route="vito258">
+        <Tab Title="Note" Route="note">
+            --><!--路径：//vito258/note/floatbutton--><!--
+            <ShellContent
+                Title="FloatButton"
+                ContentTemplate="{DataTemplate local:FloatingPage}"  
+                Route="floatbutton" />
+            
+            --><!--<ShellContent
+                Title="Dogs"
+                ContentTemplate="{DataTemplate view:Dogs}"
+                Route="dogs" />--><!--
+        </Tab>
+    </FlyoutItem>-->
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.2*,0.8*" Margin="5">
+                <Image Source="{Binding FlyoutIcon}" Margin="5" HeightRequest="32" VerticalOptions="Center"/>
+                <Label Text="{Binding Name}" TextColor="White" FontSize="20" Grid.Column="1" VerticalOptions="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+
+
+
+    <ShellContent
+        Title="主页"
+        Icon="student.gif"
+        ContentTemplate="{DataTemplate view:MyTestPage}"
+        Route="MainPage" />
+    
+     <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" /> 
+
+    <ShellContent
+        Title="关于"
+        Icon="about.jpg"
+        ContentTemplate="{DataTemplate view:AboutPage}"
+        Route="AboutPage" />
+    
+    <!--About 页面-->
+    <!--<ShellContent
+        Title="About"
+        ContentTemplate="{DataTemplate view:About}"
+        Route="about" />-->
+
+
+
+</Shell>

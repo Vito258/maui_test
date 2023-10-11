@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+			 x:Class="Project_V.Views.Pages.MyTestPage"
+             Shell.TabBarIsVisible="false" Shell.BackgroundColor="LightSkyBlue"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarHasShadow="False"
+			 BackgroundColor="White" NavigatedTo="MainPage_NavigatedTo"
+             Title="MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="添加新学生" IconImageSource="{FontImage Glyph='+',Color=White,Size=22}" Command="{Binding NewNoteCommand}"/>
+    </ContentPage.ToolbarItems>
+    <Grid RowDefinitions="Auto,*" Margin="5" RowSpacing="5">
+        <Label Text="{Binding Students.Count,StringFormat='学生总数：{0}'}"/>
+        <CollectionView ItemsSource="{Binding Students}" SelectionMode="Single" Grid.Row="1" SelectionChangedCommand="{Binding SelectedNoteCommand}"
+                        SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}" x:Name="notesCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="*,*,*" ColumnDefinitions="Auto,*" ColumnSpacing="5" RowSpacing="5">
+                        <Image Source="student.gif" HeightRequest="32" Aspect="AspectFit"/>
+                        <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="18"/>
+                        <Label Text="{Binding Score}" Grid.Row="1" Grid.ColumnSpan="2" MaxLines="1" FontSize="16"/>
+                        <Label Text="{Binding LastModifiedTime,StringFormat='修改时间：{0:yyyy-MM-dd HH:mm:ss}'}" Grid.Row="2" Grid.ColumnSpan="2" TextColor="SlateGray"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

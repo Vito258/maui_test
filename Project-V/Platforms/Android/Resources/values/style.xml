@@ -1,0 +1,10 @@
+﻿<?xml version ="1.0" encoding ="utf-8"?>
+<resources>
+<style name ="MainTheme" parent ="Maui.SplashTheme">
+　　　　　　<item name="android:windowBackground">@drawable/splash_screen</item>
+            <item name="android:windowNoTitle">true</item>
+            <item name="android:windowFullscreen">false</item>
+            <item name="android:windowContentOverlay">@null</item>
+            <item name="android:windowActionBar">false</item>
+</style >
+</resources >

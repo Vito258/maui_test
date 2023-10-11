@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_V.MediaPage"
+             xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls"
+             xmlns:controls="clr-namespace:Project_V.Controls"
+             BackgroundColor="White"
+             Title="Play video">
+    <!--播放web视频资源-->
+    <!--<controls:Video x:Name="video"
+                    Source="https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4" />-->
+    <!--播放项目内文件视频资源-->
+    <!--<controls:Video x:Name="video"
+                    Source="fire.mp4" />-->
+
+    <!--播放设备内的视频资源-->
+    <!--<Grid RowDefinitions="*,Auto">
+        <controls:Video x:Name="video" />
+        <Button Grid.Row="1"
+                Text="Show Video Library"
+                Margin="10"
+                HorizontalOptions="Center"
+                Clicked="OnShowVideoLibraryClicked" />
+    </Grid>-->
+    
+    <maui:WebView Source="fire.mp4" BackgroundColor="White"/>
+
+</ContentPage>

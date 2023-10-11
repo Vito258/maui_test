@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_V.MainPage"
+             xmlns:vm="clr-namespace:Project_V.Models"
+             >
+    <ContentPage.BindingContext>
+        <vm:ImageControlModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="15"
+            Padding="30,0"
+            VerticalOptions="Center"
+           >
+            <StackLayout Spacing="10">
+            <AbsoluteLayout 
+                            WidthRequest="500" HeightRequest="500">
+                <ImageButton x:Name="leftArrow"
+                             Source="left_arrow.png"
+                             AbsoluteLayout.LayoutBounds="0.2,1,100,100"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"                                                      
+                             Clicked="LastImage"/>
+                <ImageButton x:Name="imageControl"                                 
+                              WidthRequest="300" HeightRequest="300"
+                              Aspect="AspectFit"
+                              AbsoluteLayout.LayoutBounds="0.5,0.5,100,100"
+                              AbsoluteLayout.LayoutFlags="PositionProportional"
+                             Clicked="FromImage" Source="{Binding ImageSource}"/>
+                <ImageButton x:Name="rightArrow"
+                             Source="right_arrow.png"
+                             AbsoluteLayout.LayoutBounds="0.8,1,100,100"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             Clicked="NextImage"/>
+            </AbsoluteLayout>
+            <!--<CarouselView ItemsSource="{Binding ImagePaths}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageButton x:Name="imageControl" 
+                             Aspect="AspectFit" 
+                             Clicked="FromImage" Source="{Binding}"/>
+                    -->
+            <!--<AbsoluteLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="FromImage"/>
+                    </AbsoluteLayout.GestureRecognizers>-->
+            <!--
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>-->
+            <Button
+                x:Name="CounterBtn"
+                Text="悬浮按钮实现"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="ToFloatingPage"
+                HorizontalOptions="Center"/>
+
+            <Label Text="层级路由的实现"></Label>
+            <Button Text="Go to Page 1" Clicked="GoToPage1_Clicked" />
+            <Button Text="Go to Page 2" Clicked="GoToPage2_Clicked" />
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

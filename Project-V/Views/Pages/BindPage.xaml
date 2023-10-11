@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:globe="clr-namespace:System.Globalization;assembly=netstandard"
+             xmlns:local="clr-namespace:Project_V.Models.Domains"
+             x:Class="Project_V.Views.Pages.BindPage"
+             x:Name="page"
+             Title="BindPage">
+    <!--<VerticalStackLayout  VerticalOptions="Center">-->
+
+    <!--在 XAML 中指定数据绑定，不涉及代码文件-->
+    <!--第一节 简单视图之间的数据绑定-->
+    <!--<Label Text="ROTATION"
+               BindingContext="{x:Reference slider}"
+               Rotation="{Binding Path=Value}"
+               FontAttributes="Bold"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />-->
+    <!--<Slider x:Name="slider"
+                Maximum="360"
+                VerticalOptions="Center" />
+            <Label BindingContext="{x:Reference slider}"
+               Text="{Binding Value, StringFormat='The angle is {0:F0} degrees'}"
+               FontAttributes="Bold"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />-->
+    <!--、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、-->
+    <!--<Label Text="TEXT"
+               FontSize="40"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Scale="{Binding Source={x:Reference slider},
+                               Path=Value}" />-->
+
+    <!--Scale="{Binding Value, Source={x:Reference slider}}"-->
+
+    <!--<Label.Scale>
+            <Binding Source="{x:Reference slider}"
+                 Path="Value" />
+        </Label.Scale>-->
+
+    <!--<Label.Scale>
+            <Binding Path="Value">
+                <Binding.Source>
+                    <x:Reference Name="slider" />
+                </Binding.Source>
+            </Binding>
+        </Label.Scale>-->
+
+    <!--<Slider x:Name="slider"
+                Minimum="-2"
+                Maximum="2"
+                VerticalOptions="Center" />-->
+
+    <!--第二节 绑定上下文继承，同一个源绑定多个目标-->
+    <!--<StackLayout Padding="10">
+            <StackLayout VerticalOptions="Fill"
+                     BindingContext="{x:Reference slider}">
+
+                <Label Text="TEXT"
+                   FontSize="80"
+                   HorizontalOptions="Center"
+                   VerticalOptions="End"
+                   Rotation="{Binding Value}" />
+
+                <BoxView Color="#800000FF"
+                     WidthRequest="180"
+                     HeightRequest="40"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Start"
+                     Rotation="{Binding Value}" />
+            </StackLayout>
+
+            <Slider x:Name="slider"
+                Maximum="360" />
+        </StackLayout>-->
+
+    <!--第三节 绑定模式，单个视图可以对其多个属性具有数据绑定-->
+    <!--Default
+            OneWay         — 值从源传输到目标
+            OneWayToSource — 值从目标传输到源
+            TwoWay         — 值在源和目标之间双向传输
+            OneTime        — 数据从源转到目标，但仅当更改时BindingContext
+            F1： 含一位小数
+            F0： 整数-->
+    <!--Slider 的Value的默认绑定属性是TwoWay，所以Slider的默认值是Label的Optity的默认值1 ，而且Label的Optity属性受Slider控制-->
+    <!--<StackLayout Padding="10, 0">
+            <Label x:Name="label"
+               Text="TEXT"
+               FontSize="80"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Slider x:Name="slider"
+                VerticalOptions="Center"
+                Value="{Binding Source={x:Reference label},
+                                Path=Opacity"/>
+        </StackLayout>-->
+
+    <!--重写绑定模式-->
+    <!--在此示例中，可能预期 Slider 会初始化为 属性的初始值 Scale ，即 1，但这不会发生。 
+        初始化 TwoWay 绑定时，首先从源设置目标，这意味着会将 Scale 属性设置为 Slider 默认值 0。 对 Slider 设置 TwoWay 绑定时，最初会从源设置 Slider。-->
+    <!--<Label Text="TEXT"
+       FontSize="40"
+       HorizontalOptions="Center"
+       VerticalOptions="CenterAndExpand"
+       Scale="{Binding Source={x:Reference slider},
+                       Path=Value,
+                       Mode=OneWayToSource}" />
+       <Slider x:Name="slider"
+       VerticalOptions="Center"/>-->
+    <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            -->
+    <!-- Scaled and rotated Label -->
+    <!--
+            <Label x:Name="label"
+               Text="TEXT"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+
+            -->
+    <!-- 控制大小 -->
+    <!--
+            <Slider x:Name="scaleSlider"
+                BindingContext="{x:Reference label}"
+                Grid.Row="1" Grid.Column="0"
+                Maximum="10"
+                Value="{Binding Scale, Mode=TwoWay}" />
+            <Label BindingContext="{x:Reference scaleSlider}"
+               Text="{Binding Value, StringFormat='Scale = {0:F1}'}"
+               Grid.Row="1" Grid.Column="1"
+               VerticalTextAlignment="Center" />
+
+            -->
+    <!-- 控制中心旋转 -->
+    <!--
+            <Slider x:Name="rotationSlider"
+                BindingContext="{x:Reference label}"
+                Grid.Row="2" Grid.Column="0"
+                Maximum="360"
+                Value="{Binding Rotation, Mode=OneWayToSource}" />
+            <Label BindingContext="{x:Reference rotationSlider}"
+               Text="{Binding Value, StringFormat='Rotation = {0:F0}'}"
+               Grid.Row="2" Grid.Column="1"
+               VerticalTextAlignment="Center" />
+
+            -->
+    <!-- 控制以x轴为中心旋转 -->
+    <!--
+            <Slider x:Name="rotationXSlider"
+                BindingContext="{x:Reference label}"
+                Grid.Row="3" Grid.Column="0"
+                Maximum="360"
+                Value="{Binding RotationX, Mode=OneWayToSource}" />
+            <Label BindingContext="{x:Reference rotationXSlider}"
+               Text="{Binding Value, StringFormat='RotationX = {0:F0}'}"
+               Grid.Row="3" Grid.Column="1"
+               VerticalTextAlignment="Center" />
+
+            -->
+    <!-- 控制以y轴为中心旋转 -->
+    <!--
+            <Slider x:Name="rotationYSlider"
+                BindingContext="{x:Reference label}"
+                Grid.Row="4" Grid.Column="0"
+                Maximum="360"
+                Value="{Binding RotationY, Mode=OneWayToSource}" />
+            <Label BindingContext="{x:Reference rotationYSlider}"
+               Text="{Binding Value, StringFormat='RotationY = {0:F0}'}"
+               Grid.Row="4" Grid.Column="1"
+               VerticalTextAlignment="Center" />
+        </Grid>
+    </VerticalStackLayout>-->
+
+    <!--第四节 绑定路径-->
+    <!--<ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="10, 0">
+        <TimePicker x:Name="timePicker" />
+        <Label Text="{Binding Source={x:Reference timePicker},
+                              Path=Time.TotalSeconds,
+                              StringFormat='{0} total seconds'}" />
+        <Label Text="{Binding Source={x:Reference page},
+                              Path=Content.Children.Count,
+                              StringFormat='There are {0} children in this StackLayout'}" />
+        
+        -->
+    <!--Maui不支持CultureInfo-->
+    <!--
+        <Label Text="{Binding Source={x:Static globe:CultureInfo.CurrentCulture},
+                              Path=DateTimeFormat.DayNames[3],
+                              StringFormat='The middle day of the week is {0}'}" />
+        <Label>
+            <Label.Text>
+                <Binding Path="DateTimeFormat.DayNames[3]"
+                         StringFormat="The middle day of the week in France is {0}">
+                    <Binding.Source>
+                        <globe:CultureInfo>
+                            <x:Arguments>
+                                <x:String>fr-FR</x:String>
+                            </x:Arguments>
+                        </globe:CultureInfo>
+                    </Binding.Source>
+                </Binding>
+            </Label.Text>
+        </Label>
+        <Label Text="{Binding Source={x:Reference page},
+                              Path=Content.Children[1].Text.Length,
+                              StringFormat='The second Label has {0} characters'}" />
+    </StackLayout>-->
+
+    <!--第五节 绑定值转换器-->
+    <!--基本数据之间的转换-->
+    <!--<ContentPage.Resources>
+        <local:IntToBoolConverter x:Key="intToBool" />
+    </ContentPage.Resources>
+    <StackLayout Padding="10, 0">
+        <Entry x:Name="entry1"
+               Text=""
+               Placeholder="enter search term"
+               VerticalOptions="Center" />
+        <Button Text="Search"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsEnabled="{Binding Source={x:Reference entry1},
+                                    Path=Text.Length,
+                                    Converter={StaticResource intToBool}}"
+                Clicked="Button_Clicked"
+                />
+        <Entry x:Name="entry2"
+               Text=""
+               Placeholder="enter destination"
+               VerticalOptions="Center" />
+        <Button Text="Submit"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                IsEnabled="{Binding Source={x:Reference entry2},
+                                    Path=Text.Length,
+                                    Converter={StaticResource intToBool}}" 
+                Clicked="Button_Clicked"/>
+    </StackLayout>-->
+    <!--转换器中有自定义属性和泛型参数的转换-->
+    <!--<ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+        <Style TargetType="Switch">
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10, 0">
+        <StackLayout Orientation="Horizontal"
+                     VerticalOptions="Center">
+            <Label Text="Subscribe?" />
+            <Switch x:Name="switch1" />
+            <Label>
+                <Label.Text>
+                    <Binding Source="{x:Reference switch1}"
+                             Path="IsToggled">
+                        <Binding.Converter>
+                            <local:BoolToObjectConverter x:TypeArguments="x:String"
+                                                         TrueObject="Of course!"
+                                                         FalseObject="No way!" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.Text>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal"
+                     VerticalOptions="Center">
+            <Label Text="Allow popups?" />
+            <Switch x:Name="switch2" />
+            <Label>
+                <Label.Text>
+                    <Binding Source="{x:Reference switch2}"
+                             Path="IsToggled">
+                        <Binding.Converter>
+                            <local:BoolToObjectConverter x:TypeArguments="x:String"
+                                                         TrueObject="Yes"
+                                                         FalseObject="No" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.Text>
+                <Label.TextColor>
+                    <Binding Source="{x:Reference switch2}"
+                             Path="IsToggled">
+                        <Binding.Converter>
+                            <local:BoolToObjectConverter x:TypeArguments="Color"
+                                                         TrueObject="Green"
+                                                         FalseObject="Red" />
+                        </Binding.Converter>
+                    </Binding>
+                </Label.TextColor>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal"
+                     VerticalOptions="Center">
+            <Label Text="Learn more?" />
+            <Switch x:Name="switch3" />
+            <Label FontSize="18"
+                   VerticalOptions="Center">
+                <Label.Style>
+                    <Binding Source="{x:Reference switch3}"
+                             Path="IsToggled">
+                        <Binding.Converter>
+                            <local:BoolToObjectConverter x:TypeArguments="Style">
+                                <local:BoolToObjectConverter.TrueObject>
+                                    <Style TargetType="Label">
+                                        <Setter Property="Text" Value="Indubitably!" />
+                                        <Setter Property="FontAttributes" Value="Italic, Bold" />
+                                        <Setter Property="TextColor" Value="Green" />
+                                    </Style>
+                                </local:BoolToObjectConverter.TrueObject>
+
+                                <local:BoolToObjectConverter.FalseObject>
+                                    <Style TargetType="Label">
+                                        <Setter Property="Text" Value="Maybe later" />
+                                        <Setter Property="FontAttributes" Value="None" />
+                                        <Setter Property="TextColor" Value="Red" />
+                                    </Style>
+                                </local:BoolToObjectConverter.FalseObject>
+                            </local:BoolToObjectConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </Label.Style>
+            </Label>
+        </StackLayout>
+    </StackLayout>-->
+
+    <!--第六节 相对绑定-->
+    <!--
+    绑定到自我，即同一控件将自己的一个属性绑定到另一个属性上
+    两个属性的数值类型必须相同，或者使用绑定值转换器
+    -->
+    <!--<ContentPage.Resources>
+        <local:StringToDoubleConverter x:Key="stringToDouble" />
+    </ContentPage.Resources>
+    <StackLayout>
+        --><!--定义一个正方体-->
+        <!--<BoxView Color="Red"
+         WidthRequest="200"
+         HeightRequest="{Binding Source={RelativeSource Self}, Path=WidthRequest}"
+         HorizontalOptions="Center" />-->
+        <!--通过绑定值转换器实现自定义控件的宽度--><!--
+        <Entry 
+            Text="30"
+            WidthRequest="{Binding Source={RelativeSource Self}, Path=Text, Converter= {StaticResource stringToDouble}}"
+            Background="Red"
+            HorizontalOptions="Center"
+            >
+        </Entry>
+    </StackLayout>-->
+
+    <!--绑定到祖先
+    和相对绑定模式用于绑定到可视化树中特定类型的父元素。该模式用于绑定到父元素，父元素派生自 Element 类型。
+    该模式用于绑定到父元素的-->
+    <!--TODO-->
+    <!--<StackLayout>
+        <ListView ItemsSource="{Binding Employees}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Fullname}"
+                                   VerticalOptions="Center" />
+                            <Button Text="Delete"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:PeopleViewModel}}, Path=DeleteEmployeeCommand}"
+                                    CommandParameter="{Binding}"
+                                    HorizontalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>-->
+  
+    
+    <!--第七节 绑定回退-->
+    <!--无法解析绑定源，
+      则将在目标上设置 FallbackValue。因此，如果绑定对象上不存在 Population 属性，则将显示 FallbackValue 属性定义的值-->
+    <StackLayout>
+        <Label Text="{Binding Population, FallbackValue='Population size unknown'}" TextColor="Red"
+       />
+        <!--使用资源字典-->
+        <Label Text="{StaticResource populationUnknown}" TextColor="Green"/>
+        <Label Text="{Binding Population, FallbackValue={StaticResource populationUnknown}}" TextColor="blue"/>
+    <!--空值替换-->
+    <!--TargetNullValue 属性允许定义一个替换值，该值将在绑定源已解析但值为空时使用。设置该属性的常见情况是绑定到源属性，而源属性在绑定的集合中可能为空。-->
+        <Label Text="{Binding 
+                      Source={x:Reference JiNan},
+                      Path=Population,
+            TargetNullValue={StaticResource populationIsNull}}" 
+            TextColor="yellow"/>
+
+
+       <!--<local:City
+        Id="1"
+        x:Name="JiNan"
+        >
+        </local:City>-->
+    </StackLayout>
+    
+    
+</ContentPage>
