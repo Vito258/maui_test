@@ -8,19 +8,14 @@ public partial class GifPage : ContentPage
     {
         InitializeComponent();
         Instance = this;
-        gif.IsAnimationPlaying = true;
+       
     }
-    
-
-    public static void GifAnimationPlaying()
-    {
-        Instance.gif.IsAnimationPlaying = true;
-    }
-    protected override void OnAppearing()
+    protected async override void OnAppearing()
     {
         base.OnAppearing();
-
-        // 在此处设置按钮的属性
-       gif.IsAnimationPlaying = true;
+        await Task.Delay(100);
+        gif.IsAnimationPlaying = false;
+        await Task.Delay(100);
+        gif.IsAnimationPlaying = true;
     }
 }

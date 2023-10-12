@@ -29,23 +29,7 @@ public class MainApplication : MauiApplication
         //new Task(RegisterFirebasePush).Start();
     }
 
-    protected override MauiApp CreateMauiApp()
-    {
-        var builder = MauiApp.CreateBuilder();
-        builder
-            .UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
-            .ConfigureFonts(fonts =>
-            {
-                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            })
-            .ConfigureMauiHandlers(handlers =>
-            {
-                handlers.AddHandler(typeof(GifImage), typeof(GifImageHandler));
-            });
-        return builder.Build();
-    }
+    protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     //void RegisterFirebasePush()
     //{
     //    try

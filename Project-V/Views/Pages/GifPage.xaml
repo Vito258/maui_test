@@ -6,19 +6,21 @@
              xmlns:local="clr-namespace:Project_V.Models.Domains"
              Title="GifPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <StackLayout>
-        <!--<ffimageloading:CachedImage 
+       
+        <StackLayout Background="Aqua">
+            <Label 
+              Text="Welcome to .NET MAUI!"
+              VerticalOptions="Center" 
+              HorizontalOptions="Center" />
+            <!--<ffimageloading:CachedImage 
             Source="kk1.gif">
         </ffimageloading:CachedImage>-->
-            <local:GifImage
+            <Image
                 x:Name="gif"
                 Source="kk1.gif"
                 >
-            </local:GifImage>
+            </Image>
+            
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

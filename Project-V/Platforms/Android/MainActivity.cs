@@ -17,7 +17,6 @@ public class MainActivity : MauiAppCompatActivity
         Window.SetStatusBarColor(Android.Graphics.Color.Black);
         base.OnCreate(savedInstanceState);
         Instance = this;
-        GifPage.GifAnimationPlaying(); 
     }
     
 }

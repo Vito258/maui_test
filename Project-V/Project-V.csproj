@@ -46,8 +46,9 @@
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Include="Resources\Images\ImageControl\*" />
 		<MauiImage Include="Resources\Images\Icons\*" />
+		<MauiImage Include="Resources\Images\Gif\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-		<MauiImage Update="Resources\Images\Gif\*.gif" Resize="false" />
+		<MauiImage Update="Resources\Images\Gif\*.gif" Resize="False" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -131,6 +132,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\BindPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\CarouselViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\GifPage.xaml">

@@ -13,7 +13,7 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new GifPage());
+        MainPage = new NavigationPage(new CarouselViewPage());
     }
 
     public static TodoItemDatabase DataBase
