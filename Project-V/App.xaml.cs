@@ -13,7 +13,7 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new ControlTemplatePage());
+        MainPage = new NavigationPage(new CalculatorPage());
     }
 
     public static TodoItemDatabase DataBase
