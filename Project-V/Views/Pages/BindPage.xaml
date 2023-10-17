@@ -402,27 +402,40 @@
     <!--第七节 绑定回退-->
     <!--无法解析绑定源，
       则将在目标上设置 FallbackValue。因此，如果绑定对象上不存在 Population 属性，则将显示 FallbackValue 属性定义的值-->
-    <StackLayout>
+    <!--<StackLayout>
         <Label Text="{Binding Population, FallbackValue='Population size unknown'}" TextColor="Red"
        />
-        <!--使用资源字典-->
+        --><!--使用资源字典--><!--
         <Label Text="{StaticResource populationUnknown}" TextColor="Green"/>
         <Label Text="{Binding Population, FallbackValue={StaticResource populationUnknown}}" TextColor="blue"/>
-    <!--空值替换-->
-    <!--TargetNullValue 属性允许定义一个替换值，该值将在绑定源已解析但值为空时使用。设置该属性的常见情况是绑定到源属性，而源属性在绑定的集合中可能为空。-->
+    --><!--空值替换-->
+    <!--TargetNullValue 属性允许定义一个替换值，该值将在绑定源已解析但值为null时使用。设置该属性的常见情况是绑定到源属性，而源属性在绑定的集合中可能为空。--><!--
         <Label Text="{Binding 
-                      Source={x:Reference JiNan},
-                      Path=Population,
+                      Source={x:Reference image},
+                      Path=Source,
             TargetNullValue={StaticResource populationIsNull}}" 
-            TextColor="yellow"/>
+            TextColor="Purple"/>
+        <Image
+            x:Name="image"
+            ></Image>
 
+    </StackLayout>-->
+    
+    <!--第八节 多重绑定-->
+    <!--在页面上实现-->
+    <ContentPage.Resources>
+        <local:AllTrueMultiConverter x:Key="AllTrueConverter" />
+    </ContentPage.Resources>
 
-       <!--<local:City
-        Id="1"
-        x:Name="JiNan"
-        >
-        </local:City>-->
-    </StackLayout>
-    
-    
+    <CheckBox>
+        <CheckBox.IsChecked>
+            <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                <Binding Path="Employee.IsOver16" />
+                <Binding Path="Employee.HasPassedTest" />
+                <Binding Path="Employee.IsSuspended"
+                         Converter="{StaticResource InverterConverter}" />
+            </MultiBinding>
+        </CheckBox.IsChecked>
+    </CheckBox>
+
 </ContentPage>

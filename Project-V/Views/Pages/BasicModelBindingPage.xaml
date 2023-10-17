@@ -32,7 +32,9 @@
         </StackLayout>
     </Grid>-->
 
-    <ContentPage.BindingContext>
+    
+    <!--通过RGB的ViewModel调节RGB数值绑定颜色-->
+    <!--<ContentPage.BindingContext>
         <local:RgbColorViewModel Color="Gray" />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
@@ -77,5 +79,138 @@
                 </Label.Text>
             </Label>
         </StackLayout>
+    </StackLayout>-->
+
+
+    <!--多重绑定 将页面绑定一个集合-->
+    <ContentPage.BindingContext>
+        <local:GroupViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <converters:AllTrueMultiConverter x:Key="AllTrueConverter" />
+        <converters:AnyTrueMultiConverter x:Key="AnyTrueConverter" />
+        <converters:InverterConverter x:Key="InverterConverter" />
+    </ContentPage.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="0.25*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Employee"
+       FontAttributes="Bold" />
+    <Label Grid.Column="1"
+       Text="Can drive?"
+       FontAttributes="Bold" />
+    <Label Grid.Row="1"
+       Text="{Binding Employee1.FullName}"
+       VerticalTextAlignment="Center" />
+        <CheckBox Grid.Row="1"
+                  Grid.Column="1"
+                  HorizontalOptions="End">
+            <CheckBox.IsChecked>
+            <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                <Binding Path="Employee.IsOver16" />
+                <Binding Path="Employee.HasPassedTest" />
+                <Binding Path="Employee.IsSuspended"
+                         Converter="{StaticResource InverterConverter}" />
+            </MultiBinding>
+        </CheckBox.IsChecked>
+    </CheckBox>
+
+     <Label Grid.Row="2"
+            Text="{Binding Employee2.FullName}"
+            VerticalTextAlignment="Center" />
+     <CheckBox Grid.Row="2"
+           Grid.Column="1"
+           HorizontalOptions="End">
+         <CheckBox.IsChecked>
+             <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                 <Binding Path="Employee.IsOver16" />
+                 <Binding Path="Employee.HasPassedTest" />
+                 <Binding Path="Employee.IsSuspended"
+                  Converter="{StaticResource InverterConverter}" />
+             </MultiBinding>
+         </CheckBox.IsChecked>
+     </CheckBox>
+
+    <Label Grid.Row="3"
+           Text="{Binding Employee3.FullName}"
+           VerticalTextAlignment="Center" />
+    <CheckBox Grid.Row="3"
+              Grid.Column="1"
+              HorizontalOptions="End">
+        <CheckBox.IsChecked>
+            <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                <Binding Path="Employee.IsOver16" />
+                <Binding Path="Employee.HasPassedTest" />
+                <Binding Path="Employee.IsSuspended"
+         Converter="{StaticResource InverterConverter}" />
+            </MultiBinding>
+        </CheckBox.IsChecked>
+    </CheckBox>
+
+    <Label Grid.Row="4"
+           Text="{Binding Employee4.FullName}"
+           VerticalTextAlignment="Center" />
+    <CheckBox Grid.Row="4"
+      Grid.Column="1"
+      HorizontalOptions="End">
+        <CheckBox.IsChecked>
+            <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                <Binding Path="Employee.IsOver16" />
+                <Binding Path="Employee.HasPassedTest" />
+                <Binding Path="Employee.IsSuspended"
+                          Converter="{StaticResource InverterConverter}" />
+            </MultiBinding>
+        </CheckBox.IsChecked>
+    </CheckBox>
+   <StackLayout Grid.Row="5"
+                     Margin="0,10,0,0">
+            
+            <!--多重绑定可通过 StringFormat 属性将显示为字符串的多重绑定结果格式化。该属性可设置为标准的 .NET 格式化字符串，并带有占位符，用于指定多重绑定结果的格式：-->
+    <Label>
+        <Label.Text>
+            <MultiBinding StringFormat="{}{0} {1} {2}">
+            <!--如果格式字符串以 { 字符开头，XAML 分析程序会将其误认为标记扩展名。为避免这种歧义，请在格式字符串前加上空的大括号-->
+                <Binding Path="Employee1.Forename" />
+                <Binding Path="Employee1.MiddleName" />
+                <Binding Path="Employee1.Surname" />
+            </MultiBinding>
+        </Label.Text>
+    </Label>   
     </StackLayout>
+
+        <StackLayout Grid.Row="6" Margin="0,50,0,0">
+            <Label Text="嵌套多重绑定" TextColor="Purple" Grid.Row="6"></Label>
+            <Label Grid.Row="1"
+                   Text="{Binding Employee1.FullName}"
+                   VerticalTextAlignment="Center" />
+            <CheckBox 
+                   Grid.Row="6"
+                   Grid.Column="1"
+                   IsEnabled="False"
+                   HorizontalOptions="End">
+                <CheckBox.IsChecked>
+                    <MultiBinding Converter="{StaticResource AnyTrueConverter}">
+                        <MultiBinding Converter="{StaticResource AllTrueConverter}">
+                            <Binding Path="Employee1.IsOver16" />
+                            <Binding Path="Employee1.HasPassedTest" />
+                            <Binding Path="Employee1.IsSuspended" Converter="{StaticResource InverterConverter}" />
+                        </MultiBinding>
+                        <Binding Path="Employee.IsMonarch" />
+                    </MultiBinding>
+                </CheckBox.IsChecked>
+            </CheckBox>
+        </StackLayout>
+    </Grid>
+    
 </ContentPage>

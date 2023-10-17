@@ -14,13 +14,11 @@
               HorizontalOptions="Center" />
             <!--<ffimageloading:CachedImage 
             Source="kk1.gif">
-        </ffimageloading:CachedImage>-->
-            <Image
-                x:Name="gif"
-                Source="kk1.gif"
-                >
-            </Image>
-            
+            </ffimageloading:CachedImage>-->
+            <local:GifImage
+                Source="stitch.png">
+            </local:GifImage>
+
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

@@ -9,7 +9,7 @@ namespace Project_V.Models
     public class MonkeysViewModel : INotifyPropertyChanged
     {
         readonly IList<Monkey> source;
-        
+
         public ObservableCollection<Monkey> Monkeys { get; private set; }
         public IList<Monkey> EmptyMonkeys { get; private set; }
 
@@ -44,7 +44,7 @@ namespace Project_V.Models
                 Name = "Baboon",
                 Location = "Africa & Asia",
                 Details = "Baboons are African and Arabian Old World monkeys belonging to the genus Papio, part of the subfamily Cercopithecinae.",
-                ImageUrl = "https://api.club-off.com/coa/apps_dev/img/walkthrough-01.gif"
+                ImageUrl = "https://user-images.githubusercontent.com/17372096/274798057-46737b80-9771-448a-bee2-4bbb8e1f8c09.gif"
             });
 
             source.Add(new Monkey
@@ -52,7 +52,7 @@ namespace Project_V.Models
                 Name = "Capuchin Monkey",
                 Location = "Central & South America",
                 Details = "The capuchin monkeys are New World monkeys of the subfamily Cebinae. Prior to 2011, the subfamily contained only a single genus, Cebus.",
-                ImageUrl = "https://tse1-mm.cn.bing.net/th/id/OIP-C.Md86Wi2EYiKHNPldRZiD4gHaEo?pid=ImgDet&rs=1"
+                ImageUrl = "https://user-images.githubusercontent.com/17372096/274798147-36d5394f-0856-4418-828a-fd14213cd51a.gif"
             });
 
             source.Add(new Monkey
@@ -60,7 +60,7 @@ namespace Project_V.Models
                 Name = "Blue Monkey",
                 Location = "Central and East Africa",
                 Details = "The blue monkey or diademed monkey is a species of Old World monkey native to Central and East Africa, ranging from the upper Congo River basin east to the East African Rift and south to northern Angola and Zambia",
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5876be053e00be4f63b6796c/1521585179269-FGHJC4BO3KXIQB489KU2/ke17ZwdGBToddI8pDm48kI1dxkzCdoaQDevnVA9R4g1Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpyKi-oUoBVevRLtXFipgGDcIiZgSYdrptGW3-0WE_JDnWAg8j-9wbE7_h7uxkrF2Ds/Renny-600.gif"
+                ImageUrl = "https://user-images.githubusercontent.com/17372096/274798466-7f263c96-cad1-48c9-a207-ac3a23a349a0.gif"
             });
 
             source.Add(new Monkey
@@ -68,7 +68,7 @@ namespace Project_V.Models
                 Name = "Squirrel Monkey",
                 Location = "Central & South America",
                 Details = "The squirrel monkeys are the New World monkeys of the genus Saimiri. They are the only genus in the subfamily Saimirinae. The name of the genus Saimiri is of Tupi origin, and was also used as an English name by early researchers.",
-                ImageUrl = "https://tse1-mm.cn.bing.net/th/id/OIP-C.i6C9ignTuaLtZUO3ybJRqgHaHa?pid=ImgDet&rs=1"
+                ImageUrl = "https://api.club-off.com/coa/apps_dev/img/walkthrough-03.gif"
             });
 
             source.Add(new Monkey

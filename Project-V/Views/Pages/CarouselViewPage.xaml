@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_V.Views.Pages.CarouselViewPage"
-             xmlns:ffimageloading="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+             xmlns:local="clr-namespace:Project_V.Models.Domains"
              xmlns:viewmodels="clr-namespace:Project_V.Models"
              Title="CarouselViewPage">
     <ContentPage.BindingContext>
@@ -29,7 +29,7 @@
                                        FontSize="20"
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center" />
-                                <ffimageloading:CachedImage  Source="{Binding ImageUrl}" 
+                                <local:GifImage  Source="{Binding ImageUrl}" 
                                        Aspect="AspectFill"
                                        HeightRequest="150"
                                        WidthRequest="150"

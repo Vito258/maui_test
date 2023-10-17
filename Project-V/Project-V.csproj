@@ -48,7 +48,6 @@
 		<MauiImage Include="Resources\Images\Icons\*" />
 		<MauiImage Include="Resources\Images\Gif\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-		<MauiImage Update="Resources\Images\Gif\*.gif" Resize="False" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -119,6 +118,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\TealTemplate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\CardViewUI.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\HeaderFooterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\AboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -135,6 +143,15 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\CarouselViewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\CommandPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\ContentPresenterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\ControlTemplatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\GifPage.xaml">
@@ -222,7 +239,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="AppNet\" />
-	  <Folder Include="Controls\Implement\" />
+	  <Folder Include="Handlers\" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-maccatalyst'">
 	  <PackageReference Include="Xamarin.Firebase.iOS.InstanceID">

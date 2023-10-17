@@ -3,7 +3,6 @@ using FFImageLoading.Maui;
 using Microsoft.Extensions.Logging;
 using Plugin.MauiMTAdmob;
 using Project_V.Models;
-using Project_V.Models.Domains;
 using Project_V.Views.Pages;
 
 namespace Project_V;
@@ -23,10 +22,10 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-            //.ConfigureMauiHandlers(handlers =>
-            // {
-            //     handlers.AddHandler(typeof(GifImage), typeof(GifImageHandler));
-            // });
+        //.ConfigureMauiHandlers(handlers =>
+        // {
+        //     handlers.AddHandler(typeof(GifImage), typeof(GifImageHandler));
+        // });
 
         /*
          * 使用依赖项注入TodoItemDataBase

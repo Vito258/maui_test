@@ -1,20 +1,11 @@
-using static System.Net.Mime.MediaTypeNames;
-using Image = Microsoft.Maui.Controls.Image;
-
 namespace Project_V.Views.Pages;
 
 public partial class CarouselViewPage : ContentPage
 {
-	public CarouselViewPage()
-	{
-		InitializeComponent();
+    public CarouselViewPage()
+    {
+        InitializeComponent();
     }
-
-    //protected override void OnAppearing()
-    //{
-    //    var image = carouselView.FindByName("image");
-    //    DisplayAlert("title", image.ToString(), "cancel");
-    //}
 
     private void Button_Clicked(object sender, EventArgs e)
     {
@@ -25,7 +16,15 @@ public partial class CarouselViewPage : ContentPage
 
     private void ImageButton_Clicked(object sender, EventArgs e)
     {
-       //Image image =  sender as Image;
-       // DisplayAlert("title", sender.GetLocation, "cancel");
+        //Image image =  sender as Image;
+        //DisplayAlert("title", sender.GetLocation, "cancel");
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        //carouselView.On
+        //object o  = carouselView.CurrentItem;
+        //DisplayAlert("title", o.ToString(), "cancel");
     }
 }

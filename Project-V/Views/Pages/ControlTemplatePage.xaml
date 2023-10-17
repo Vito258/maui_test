@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_V.Views.Pages.ControlTemplatePage"
+             xmlns:controls="clr-namespace:Project_V.Controls"
+             xmlns:local="clr-namespace:Project_V.Models"
+             Title="ControlTemplatePage"
+             >
+    <!--自定义CardView的ControlTemplate控件，将ControlTemplate作为资源声明,使用其他自定义控件时可以将此作为模板，若在页面中定义该模板，仅该页面可以使用此控件模板-->
+    
+    <!--第一节 使用相对绑定-->
+    <!--<ContentPage.Resources>
+        <ControlTemplate x:Key="CardViewControlTemplate">
+            <Frame BindingContext="{Binding Source={RelativeSource TemplatedParent}}"
+                 BackgroundColor="{Binding CardColor}"
+                 BorderColor="{Binding BorderColor}"
+                 CornerRadius="5"
+                 HasShadow="True"
+                 Padding="8"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="4" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Frame IsClippedToBounds="True"
+                         BorderColor="{Binding BorderColor}"
+                         BackgroundColor="{Binding IconBackgroundColor}"
+                         CornerRadius="38"
+                         HeightRequest="60"
+                         WidthRequest="60"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                        <Image Source="{Binding IconImageSource}"
+                             Margin="-20"
+                             WidthRequest="100"
+                             HeightRequest="100"
+                             Aspect="AspectFill" />
+                    </Frame>
+                    <Label Grid.Column="1"
+                         Text="{Binding CardTitle}"
+                         FontAttributes="Bold"
+                         FontSize="18"
+                         VerticalTextAlignment="Center"
+                         HorizontalTextAlignment="Start" />
+                    <BoxView Grid.Row="1"
+                           Grid.ColumnSpan="2"
+                           BackgroundColor="{Binding BorderColor}"
+                           HeightRequest="2"
+                           HorizontalOptions="Fill" />
+                    <Label Grid.Row="2"
+                         Grid.ColumnSpan="2"
+                         Text="{Binding CardDescription}"
+                         VerticalTextAlignment="Start"
+                         VerticalOptions="Fill"
+                         HorizontalOptions="Fill" />
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+    </ContentPage.Resources>
+    
+    <StackLayout>
+        <controls:CardView BorderColor="DarkGray"
+                           CardTitle="John Doe"
+                           CardDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit dolor, convallis non interdum."
+                           IconBackgroundColor="SlateGray"
+                           ControlTemplate="{StaticResource CardViewControlTemplate}" />
+        <controls:CardView BorderColor="DarkGray"
+                           CardTitle="Jane Doe"
+                           CardDescription="Phasellus eu convallis mi. In tempus augue eu dignissim fermentum. Morbi ut lacus vitae eros lacinia."
+                           IconBackgroundColor="SlateGray"
+                           IconImageSource="stitch.png"
+                           ControlTemplate="{StaticResource CardViewControlTemplate}" />
+    </StackLayout>-->
+
+    <!--第二节 使用 TemplateBinding 传递参数-->
+    <!--使用 TemplateBinding 标记扩展等效于使用 RelativeSource 标记扩展将模板根元素的 BindingContext 设置为其模板化父级，然后使用 Binding 标记扩展解析子对象的绑定。 事实上，TemplateBinding 标记扩展会创建 Source 为 RelativeBindingSource.TemplatedParent 的 Binding。-->
+    <!--<ContentPage.Resources>
+        <ControlTemplate x:Key="CardViewControlTemplate">
+            <Frame BackgroundColor="{TemplateBinding CardColor}"
+                   BorderColor="{TemplateBinding BorderColor}"
+                   CornerRadius="5"
+                   HasShadow="True"
+                   Padding="8"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="4" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Frame IsClippedToBounds="True"
+                           BorderColor="{TemplateBinding BorderColor}"
+                           BackgroundColor="{TemplateBinding IconBackgroundColor}"
+                           CornerRadius="38"
+                           HeightRequest="60"
+                           WidthRequest="60"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Image Source="{TemplateBinding IconImageSource}"
+                               Margin="-20"
+                               WidthRequest="100"
+                               HeightRequest="100"
+                               Aspect="AspectFill" />
+                    </Frame>
+                    <Label Grid.Column="1"
+                           Text="{TemplateBinding CardTitle}"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Start" />
+                    <BoxView Grid.Row="1"
+                             Grid.ColumnSpan="2"
+                             BackgroundColor="{TemplateBinding BorderColor}"
+                             HeightRequest="2"
+                             HorizontalOptions="Fill" />
+                    <Label Grid.Row="2"
+                           Grid.ColumnSpan="2"
+                           Text="{TemplateBinding CardDescription}"
+                           VerticalTextAlignment="Start"
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Fill" />
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+    </ContentPage.Resources>
+    <StackLayout>
+        <controls:CardView BorderColor="DarkGray"
+                        CardTitle="John Doe"
+                        CardDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit dolor, convallis non interdum."
+                        IconBackgroundColor="SlateGray"
+                        ControlTemplate="{StaticResource CardViewControlTemplate}" />
+        <controls:CardView BorderColor="DarkGray"
+                        CardTitle="Jane Doe"
+                        CardDescription="Phasellus eu convallis mi. In tempus augue eu dignissim fermentum. Morbi ut lacus vitae eros lacinia."
+                        IconBackgroundColor="SlateGray"
+                        IconImageSource="stitch.png"
+                        ControlTemplate="{StaticResource CardViewControlTemplate}" />
+    </StackLayout>-->
+    
+    <!--第三节 使用样式应用 ControlTemplate-->
+    <!--<ContentPage.Resources>
+        <ControlTemplate x:Key="CardViewControlTemplate">
+            <Frame BackgroundColor="{TemplateBinding CardColor}"
+                   BorderColor="{TemplateBinding BorderColor}"
+                   CornerRadius="5"
+                   HasShadow="True"
+                   Padding="8"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="4" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Frame IsClippedToBounds="True"
+                           BorderColor="{TemplateBinding BorderColor}"
+                           BackgroundColor="{TemplateBinding IconBackgroundColor}"
+                           CornerRadius="38"
+                           HeightRequest="60"
+                           WidthRequest="60"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Image Source="{TemplateBinding IconImageSource}"
+                               Margin="-20"
+                               WidthRequest="100"
+                               HeightRequest="100"
+                               Aspect="AspectFill" />
+                    </Frame>
+                    <Label Grid.Column="1"
+                           Text="{TemplateBinding CardTitle}"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Start" />
+                    <BoxView Grid.Row="1"
+                             Grid.ColumnSpan="2"
+                             BackgroundColor="{TemplateBinding BorderColor}"
+                             HeightRequest="2"
+                             HorizontalOptions="Fill" />
+                    <Label Grid.Row="2"
+                           Grid.ColumnSpan="2"
+                           Text="{TemplateBinding CardDescription}"
+                           VerticalTextAlignment="Start"
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Fill" />
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+        --><!--在此示例中，隐式Style 会自动应用于每个 CardView 对象，并将每个 CardView 对象的 属性设置为 ControlTemplateCardViewControlTemplate。--><!--
+        <Style TargetType="controls:CardView">
+        <Setter Property="ControlTemplate"
+                    Value="{StaticResource CardViewControlTemplate}" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <controls:CardView BorderColor="DarkGray"
+                     CardTitle="John Doe"
+                     CardDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit dolor, convallis non interdum."
+                     IconBackgroundColor="SlateGray"
+                      />
+        <controls:CardView BorderColor="DarkGray"
+                     CardTitle="Jane Doe"
+                     CardDescription="Phasellus eu convallis mi. In tempus augue eu dignissim fermentum. Morbi ut lacus vitae eros lacinia."
+                     IconBackgroundColor="SlateGray"
+                     IconImageSource="stitch.png"
+                      />
+    </StackLayout>--> 
+    
+    <!--第四节 重新定义控件的UI-->
+    <!--不会呈现CardViewUI的UI界面，而是采用这里的-->
+    <!--<ContentPage.Resources>
+        <ControlTemplate x:Key="CardViewCompressed">
+            <Grid BackgroundColor="BurlyWood">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{TemplateBinding IconImageSource}"
+                       BackgroundColor="{TemplateBinding IconBackgroundColor}"
+                       WidthRequest="100"
+                       HeightRequest="100"
+                       Aspect="AspectFill"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <StackLayout Grid.Column="1">
+                    <Label Text="{TemplateBinding CardTitle}"
+                           FontAttributes="Bold" />
+                    <Label Text="{TemplateBinding CardDescription}" />
+                </StackLayout>
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.Resources>
+    <StackLayout Margin="30">
+        <controls:CardViewUI BorderColor="DarkGray"
+                             CardTitle="John Doe"
+                             CardDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit dolor, convallis non interdum."
+                             IconBackgroundColor="SlateGray"
+                             ControlTemplate="{StaticResource CardViewCompressed}" />
+        <controls:CardViewUI BorderColor="DarkGray"
+                             CardTitle="Jane Doe"
+                             CardDescription="Phasellus eu convallis mi. In tempus augue eu dignissim fermentum. Morbi ut lacus vitae eros lacinia."
+                             IconBackgroundColor="SlateGray"
+                             IconImageSource="dotnet_bot.svg"
+                             ControlTemplate="{StaticResource CardViewCompressed}" />
+    </StackLayout>-->
+
+    <!--第五节  将内容替换到 ContentPresenter -->
+    <!--ContentPresenter: 模板化视图的布局管理器。-->
+    <!--详看ContentPresenterPage-->
+
+    <!--第六节 绑定到 viewmodel-->
+    <ContentPage.BindingContext>
+        <local:PeopleViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="CardViewControlTemplate">
+            <Frame BindingContext="{Binding Source={RelativeSource TemplatedParent}}"
+           BackgroundColor="{Binding CardColor}"
+           BorderColor="{Binding BorderColor}"
+           CornerRadius="5"
+           HasShadow="True"
+           Padding="8"
+           HorizontalOptions="Center"
+           VerticalOptions="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="4" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding CardTitle}"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start" />
+                    <BoxView Grid.Row="1"
+                     BackgroundColor="{Binding BorderColor}"
+                     HeightRequest="2"
+                     HorizontalOptions="Fill" />
+                    <Label Grid.Row="2"
+                   Text="{Binding CardDescription}"
+                   VerticalTextAlignment="Start"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill" />
+                    <Button Text="Delete"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:PeopleViewModel}}, Path=DeletePersonCommand}"
+                    CommandParameter="{Binding CardTitle}"
+                    HorizontalOptions="End" />
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+        
+        <DataTemplate x:Key="PersonTemplate">
+            <controls:CardView BorderColor="DarkGray"
+                               CardTitle="{Binding Name}"
+                               CardDescription="{Binding Description}"
+                               ControlTemplate="{StaticResource CardViewControlTemplate}" />
+        </DataTemplate>
+    </ContentPage.Resources>
+
+    <StackLayout Margin="10"
+                 BindableLayout.ItemsSource="{Binding People}"
+                 BindableLayout.ItemTemplate="{StaticResource PersonTemplate}" />
+</ContentPage>
