@@ -45,7 +45,7 @@ public partial class CardViewUI : ContentView
         set => SetValue(IconImageSourceProperty, value);
     }
     public CardViewUI()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 }

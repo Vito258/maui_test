@@ -1,4 +1,3 @@
-using Microsoft.Maui.Hosting;
 using Project_V.Controls;
 
 namespace Project_V.Views.Pages;
@@ -22,12 +21,12 @@ public partial class ContentPresenterPage : ContentPage
         get { return originalTemplate; }
     }
     public ContentPresenterPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         Resources.MergedDictionaries.Add(new Project_V.Controls.TealTemplate());
         //tealTemplate = (ControlTemplate)Resources["TealTemplate"];
         //aquaTemplate = (ControlTemplate)Resources["AquaTemplate"];
-        
+
     }
     void OnChangeThemeLabelTapped(object sender, EventArgs e)
     {

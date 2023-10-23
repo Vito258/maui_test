@@ -64,6 +64,7 @@
 		<None Remove="Platforms\Android\Resources\drawable\splash_screen.svg" />
 		<None Remove="Resources\Images\Icons\about.jpg" />
 		<None Remove="Resources\Images\Icons\student.gif" />
+		<None Remove="Resources\Images\noimage.png" />
 	</ItemGroup>
 	
 	<!--<ItemGroup>
@@ -155,6 +156,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\ControlTemplatePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\CustomPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\GifPage.xaml">

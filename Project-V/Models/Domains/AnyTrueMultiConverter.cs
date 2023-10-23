@@ -27,7 +27,7 @@ namespace Project_V.Models.Domains
                 else if (b)
                 {
                     return true;
-                }                    
+                }
             }
             return false;
         }

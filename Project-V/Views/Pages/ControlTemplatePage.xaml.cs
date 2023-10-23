@@ -2,8 +2,8 @@
 
 public partial class ControlTemplatePage : ContentPage
 {
-	public ControlTemplatePage()
-	{
-		InitializeComponent();
-	}
+    public ControlTemplatePage()
+    {
+        InitializeComponent();
+    }
 }

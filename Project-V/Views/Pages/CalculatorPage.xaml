@@ -80,20 +80,27 @@
                 CommandParameter="." />
         <Button Text="+"
         Grid.Row="1" Grid.Column="3"
-        Command="{Binding DigitCommand}" />
+        Command="{Binding DigitCommand}"
+        CommandParameter="+"/>
+        
         <Button Text="-"
         Grid.Row="2" Grid.Column="3"
-        Command="{Binding DigitCommand}" />
+        Command="{Binding DigitCommand}"
+        CommandParameter="-"/>
+        
         <Button Text="×"
         Grid.Row="3" Grid.Column="3"
-        Command="{Binding DigitCommand}" />
+        Command="{Binding DigitCommand}"
+        CommandParameter="*"/>
+        
         <Button Text="÷"
         Grid.Row="4" Grid.Column="3"
-        Command="{Binding DigitCommand}" />
+        Command="{Binding DigitCommand}"
+        CommandParameter="/"/>
         
         <Button Text="="
         Grid.Row="5" Grid.Column="3"
-        Command="{Binding DigitCommand}"
+        Command="{Binding ResultCommand}"
         CommandParameter="{Binding Entry}"/>
     </Grid>
 </ContentPage>

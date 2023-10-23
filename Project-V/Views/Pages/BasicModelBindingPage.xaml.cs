@@ -1,8 +1,4 @@
-﻿using Project_V.Models;
-using Project_V.Models.Domains;
-using System.Collections.ObjectModel;
-
-namespace Project_V.Views.Pages;
+﻿namespace Project_V.Views.Pages;
 
 public partial class BasicModelBindingPage : ContentPage
 {

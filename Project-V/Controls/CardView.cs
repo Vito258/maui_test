@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-/* 项目“Project-V (net7.0-ios)”的未合并的更改
+﻿/* 项目“Project-V (net7.0-ios)”的未合并的更改
 在此之前:
 using System.Threading.Tasks;
 在此之后:
@@ -13,7 +8,6 @@ using Project_V.Controls;
 using Project_V.Controls;
 using Project_V.Controls.Elements;
 */
-using System.Threading.Tasks;
 
 namespace Project_V.Controls
 {
