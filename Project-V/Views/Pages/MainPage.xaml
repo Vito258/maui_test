@@ -21,13 +21,18 @@
                              AbsoluteLayout.LayoutBounds="0.2,1,100,100"
                              AbsoluteLayout.LayoutFlags="PositionProportional"                                                      
                              Clicked="LastImage"/>
-                <ImageButton x:Name="imageControl"                                 
+                    <Image x:Name="imageControl"                                 
                               WidthRequest="300" HeightRequest="300"
                               Aspect="AspectFit"
                               AbsoluteLayout.LayoutBounds="0.5,0.5,100,100"
                               AbsoluteLayout.LayoutFlags="PositionProportional"
-                             Clicked="FromImage" Source="{Binding ImageSource}"/>
-                <ImageButton x:Name="rightArrow"
+                              Source="{Binding ImageSource}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="FromImage">
+                            </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <ImageButton x:Name="rightArrow"
                              Source="right_arrow.png"
                              AbsoluteLayout.LayoutBounds="0.8,1,100,100"
                              AbsoluteLayout.LayoutFlags="PositionProportional"

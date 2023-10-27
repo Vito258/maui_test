@@ -33,7 +33,11 @@
                                        Aspect="AspectFill"
                                        HeightRequest="150"
                                        WidthRequest="150"
-                                       HorizontalOptions="Center" />
+                                       HorizontalOptions="Center" >
+                                    <local:GifImage.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapped"/>
+                                    </local:GifImage.GestureRecognizers>
+                                </local:GifImage>
                                 <Label Text="{Binding Location}"
                                        HorizontalOptions="Center" />
                                 <Label Text="{Binding Details}"
@@ -53,9 +57,5 @@
                        SelectedIndicatorColor="DarkGray"
                        HorizontalOptions="Center"
                        Margin="0,0,0,40" />
-        <Button
-            Text="Click me"
-            Clicked="Button_Clicked"
-            ></Button>
     </StackLayout>
 </ContentPage>

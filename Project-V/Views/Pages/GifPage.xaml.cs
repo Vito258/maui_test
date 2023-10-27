@@ -1,4 +1,6 @@
-﻿namespace Project_V.Views.Pages;
+﻿using FFImageLoading.Maui;
+
+namespace Project_V.Views.Pages;
 
 public partial class GifPage : ContentPage
 {
@@ -8,6 +10,7 @@ public partial class GifPage : ContentPage
     {
         InitializeComponent();
         Instance = this;
+        CachedImage a;
 
     }
     //protected async override void OnAppearing()

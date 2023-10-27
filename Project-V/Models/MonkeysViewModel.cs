@@ -44,7 +44,7 @@ namespace Project_V.Models
                 Name = "Baboon",
                 Location = "Africa & Asia",
                 Details = "Baboons are African and Arabian Old World monkeys belonging to the genus Papio, part of the subfamily Cercopithecinae.",
-                ImageUrl = "https://user-images.githubusercontent.com/17372096/274798057-46737b80-9771-448a-bee2-4bbb8e1f8c09.gif"
+                ImageUrl = "https://www.ignant.com/wp-content/uploads/2014/07/The_Gif_Connoisseur_01.gif"
             });
 
             source.Add(new Monkey

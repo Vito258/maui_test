@@ -62,6 +62,8 @@
 	
 	<ItemGroup>
 		<None Remove="Platforms\Android\Resources\drawable\splash_screen.svg" />
+		<None Remove="Resources\Images\Gif\kk1.gif" />
+		<None Remove="Resources\Images\Gif\kk2.gif" />
 		<None Remove="Resources\Images\Icons\about.jpg" />
 		<None Remove="Resources\Images\Icons\box.jfif" />
 		<None Remove="Resources\Images\Icons\student.gif" />
@@ -284,6 +286,7 @@
 	<ItemGroup>
 	  <Folder Include="AppNet\" />
 	  <Folder Include="Handlers\" />
+	  <Folder Include="Views\ReloApp\" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-maccatalyst'">
 	  <PackageReference Include="Xamarin.Firebase.iOS.InstanceID">

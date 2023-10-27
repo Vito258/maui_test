@@ -1,4 +1,5 @@
-﻿using Project_V.Models;
+﻿
+using Project_V.Models;
 using Project_V.Views.First;
 using Project_V.Views.Second;
 using System.Diagnostics;
@@ -23,16 +24,17 @@ public partial class MainPage : ContentPage
         BindingContext = imageControlModel;
 
         // 每隔一段时间切换图片
-        Dispatcher.StartTimer(TimeSpan.FromSeconds(10), () =>
-        {
-            SlideOut();
+        //Dispatcher.StartTimer(TimeSpan.FromSeconds(10), () =>
+        //{
+        //    SlideOut();
 
-            // 切换图片
-            imageControlModel.ShowImage();
+        //    // 切换图片
+        //    imageControlModel.ShowImage();
 
-            SlideIn();
-            return true;
-        });
+        //    SlideIn();
+        //    return true;
+        //});
+
         // 注册根路由
         Routing.RegisterRoute("myapp://page1", typeof(F1Page));
         Routing.RegisterRoute("myapp://page2", typeof(F2Page));
@@ -51,7 +53,7 @@ public partial class MainPage : ContentPage
         // 导航到Page2
         await Navigation.PushAsync(new F2Page());
     }
-    private async void FromImage(object sender, EventArgs e)
+    private async void FromImage(object sender, TappedEventArgs e )
     {
         // 将sender转换为ImageButton类型
         var imageButton = (ImageButton)sender;
@@ -152,8 +154,16 @@ public partial class MainPage : ContentPage
             slideInAnimation = new Animation(v => imageControl.TranslationX = v, 200, 0);
             imageControl.Animate("SlideAnimation", slideInAnimation, 60, 500);
         }
+    }
 
-
+    //gif的播放刷新
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        await Task.Delay(100);
+        imageControl.IsAnimationPlaying = false;
+        await Task.Delay(100);
+        imageControl.IsAnimationPlaying = true;
     }
 }
 

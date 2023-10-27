@@ -1,3 +1,5 @@
+using Project_V.Models.Domains;
+
 namespace Project_V.Views.Pages;
 
 public partial class CarouselViewPage : ContentPage
@@ -7,24 +9,17 @@ public partial class CarouselViewPage : ContentPage
         InitializeComponent();
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
-    {
-        //var dataTemplate = carouselView.FindByName("dataTemplate") as DataTemplate;
-        //dataTemplate
-        //DisplayAlert("title", image.ToString(), "cancel");
-    }
-
-    private void ImageButton_Clicked(object sender, EventArgs e)
-    {
-        //Image image =  sender as Image;
-        //DisplayAlert("title", sender.GetLocation, "cancel");
-    }
-
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        //carouselView.On
-        //object o  = carouselView.CurrentItem;
-        //DisplayAlert("title", o.ToString(), "cancel");
+    }
+
+    private void OnTapped(object sender, TappedEventArgs e)
+    {
+        string name = "";
+        //name = e.GetPosition(this).ToString();
+        //name = sender.GetType().Name;
+   
+        DisplayAlert("title", name, "cancel");
     }
 }

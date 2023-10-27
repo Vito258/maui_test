@@ -42,8 +42,8 @@ public class MainApplication : MauiApplication
             .UseFFImageLoading()
             .ConfigureMauiHandlers(handlers =>
             {
-             handlers.AddCompatibilityRenderer(typeof(CustomImage), typeof(CustomImageRenderer));
              handlers.AddHandler(typeof(UriImageSource), typeof(MyImageLoaderSourceHandler));
+             handlers.AddCompatibilityRenderer(typeof(GifImage), typeof(GifImageRenderer));
             }).UseMauiCompatibility().UseMauiCommunityToolkit();
 #if DEBUG
         builder.Logging.AddDebug();

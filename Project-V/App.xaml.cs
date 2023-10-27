@@ -15,7 +15,7 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new SubscribeMessagePage());
+        MainPage = new NavigationPage(new CarouselViewPage());
     }
 
     public static TodoItemDatabase DataBase
