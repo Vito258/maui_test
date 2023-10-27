@@ -1,5 +1,7 @@
 ﻿
 using Project_V.Views.Coordinator;
+using Project_V.Views.Gestures;
+using Project_V.Views.Messages;
 using Project_V.Views.Pages;
 
 namespace Project_V;
@@ -13,7 +15,7 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new CalculatorPage());
+        MainPage = new NavigationPage(new SubscribeMessagePage());
     }
 
     public static TodoItemDatabase DataBase

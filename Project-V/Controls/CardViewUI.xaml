@@ -35,7 +35,7 @@
                        Aspect="AspectFill" />
             </Frame>
             <Label Grid.Column="1"
-                   Text="{Binding CardTitle, FallbackValue='Card title'}"
+                   Text="{Binding CardTitle}"
                    FontAttributes="Bold"
                    FontSize="18"
                    VerticalTextAlignment="Center"

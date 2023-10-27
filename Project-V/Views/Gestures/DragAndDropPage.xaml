@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_V.Views.Gestures.DragAndDropPage"
+             xmlns:models="clr-namespace:Project_V.Models"
+             Title="DragAndDropPage">
+    <ContentPage.BindingContext>
+        <models:MyBindingModel></models:MyBindingModel>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <!--<Image Source="diablo.png" HeightRequest="50" WidthRequest="50" >
+            <Image.GestureRecognizers>
+                <DragGestureRecognizer DragStarting="OnDragStarting"/>
+            </Image.GestureRecognizers>
+        </Image>-->
+
+        <Label x:Name="label" Text="举头望明月，低头望明月 --范小勤" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label.GestureRecognizers>
+                <DragGestureRecognizer DragStarting="OnDragStarting" />
+                <!--<DropGestureRecognizer DragOver="OnDragOver" Drop="OnDrop"/>-->
+            </Label.GestureRecognizers>
+        </Label>
+            
+            
+        <Image Source="box.jfif" HeightRequest="100" WidthRequest="100" Margin="0,500,0,0">
+            <Image.GestureRecognizers>
+                <DropGestureRecognizer Drop="BoxConsume" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Label Text="{Binding Text}" TextColor="Red" BackgroundColor="Aqua" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+    </VerticalStackLayout>
+</ContentPage>

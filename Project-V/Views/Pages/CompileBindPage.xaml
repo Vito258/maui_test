@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_V.Views.Pages.CompileBindPage"
+             xmlns:models="clr-namespace:Project_V.Models"
+             xmlns:local="clr-namespace:Project_V.Models.Domains"
+             x:DataType="models:BindingViewModel"
+             Title="CompileBindPage">
+    <!--<ContentPage.BindingContext>
+        <models:BindingViewModel Color="Sienna" />
+    </ContentPage.BindingContext>
+    --><!--数据绑定之已编译的绑定-->
+    <!--编译的绑定通过在编译时而不是运行时解析绑定表达式来提高 .NET MAUI 应用程序中的数据绑定性能。 此外，绑定表达式的这种编译时验证可以提供更好的开发人员故障排除体验，因为无效绑定会被报告为生成错误。--><!--
+    <Grid>
+        
+        <BoxView Color="{Binding Color}"/>
+    <StackLayout Margin="10, 0">
+        <Label Text="{Binding Name}" />
+        <Slider Value="{Binding Hue}" />
+        <Label Text="{Binding Hue, StringFormat='Hue = {0:F2}'}" />
+        <Slider Value="{Binding Saturation}" />
+        <Label Text="{Binding Saturation, StringFormat='Saturation = {0:F2}'}" />
+        <Slider Value="{Binding Luminosity}" />
+            <Label Text="{Binding Luminosity, StringFormat='Luminosity = {0:F2}'}" />
+        </StackLayout>
+    </Grid>-->
+
+
+    <!--在 DataTemplate 中使用已编译的绑定-->
+    <!--<Grid>
+        <ListView x:Name="colorListView"
+                  ItemsSource="{x:Static local:NamedColor.All}" >
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:NamedColor">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <BoxView Color="{Binding Color}" />
+                            <Label Text="{Binding FriendlyName}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        --><!-- The BoxView doesn't use compiled bindings --><!--
+        <BoxView Color="{Binding Source={x:Reference colorListView}, Path=SelectedItem.Color}"></BoxView>
+    </Grid>-->
+
+    
+    
+    <!--将已编译的绑定与传统绑定相结合
+    绑定表达式仅针对定义了 x:DataType 属性的视图层次结构进行编译。 相反，未定义 x:DataType 属性的层次结构中的任何视图都将使用传统绑定。
+    因此，可以在页面上组合已编译的绑定和传统绑定。-->
+    <!--在任意节点将x:DataType设置为null 执行此操作表示视图层次结构中的任何绑定表达式都将使用传统绑定-->
+    <StackLayout x:DataType="models:BindingViewModel">
+        <StackLayout.BindingContext>
+            <models:BindingViewModel Color="Sienna" />
+        </StackLayout.BindingContext>
+        <BoxView Color="{Binding Color}"
+             VerticalOptions="FillAndExpand" />
+        <StackLayout x:DataType="{x:Null}"
+                 Margin="10, 0">
+            <Label Text="{Binding Name}" />
+            <Slider Value="{Binding Hue}" />
+            <Label Text="{Binding Hue, StringFormat='Hue = {0:F2}'}" />
+            <Slider Value="{Binding Saturation}" />
+            <Label Text="{Binding Saturation, StringFormat='Saturation = {0:F2}'}" />
+            <Slider Value="{Binding Luminosity}" />
+            <Label Text="{Binding Luminosity, StringFormat='Luminosity = {0:F2}'}" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
