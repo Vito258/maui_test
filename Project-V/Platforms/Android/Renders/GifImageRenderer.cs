@@ -31,6 +31,7 @@ namespace Project_V.Platforms.Android.Renders
                 Control.Post(() =>
                     {
                         Control.UpdateIsAnimationPlaying(image);
+                        Control.Invalidate();
                     });
             }
         }
