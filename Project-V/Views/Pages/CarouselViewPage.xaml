@@ -33,7 +33,8 @@
                                        Aspect="AspectFill"
                                        HeightRequest="150"
                                        WidthRequest="150"
-                                       HorizontalOptions="Center" >
+                                       HorizontalOptions="Center"
+                                       IsAnimationPlaying="False">
                                     <local:GifImage.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="OnTapped"/>
                                     </local:GifImage.GestureRecognizers>

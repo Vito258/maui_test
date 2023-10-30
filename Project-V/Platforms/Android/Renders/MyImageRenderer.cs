@@ -12,7 +12,7 @@ using Xamarin.Android.Net;
 using CancellationToken = System.Threading.CancellationToken;
 using Stream = System.IO.Stream;
 
-[assembly: ExportImageSourceHandler(typeof(UriImageSource), typeof(MyImageLoaderSourceHandler))]
+//[assembly: ExportImageSourceHandler(typeof(UriImageSource), typeof(MyImageLoaderSourceHandler))]
 namespace Project_V.Platforms.Android.Renders
 {
     //读取UriImageSource的ImageHandler
